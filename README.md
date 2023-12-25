@@ -88,6 +88,29 @@ glob prok is smaller than pish pish
 tegj glob glob is larger than glob prok
 I have no idea what you are talking about
 ```
+
+## System Design
+
+This application is a console-based Java application developed using Maven. The application is designed to convert intergalactic units to Roman numerals and perform arithmetic operations on them.
+
+The application follows a modular design with separate classes handling different responsibilities:
+
+- `Main`: The entry point of the application.
+- `InputHandler`: Handles reading input from a file.
+- `OutputHandler`: Handles writing output to the console.
+- `InputParser`: Parses the input and performs the necessary operations.
+- `QueryProcessor`: Processes the queries and returns the result.
+
+## Assumptions
+
+The following nontrivial assumptions were made during the development of this application:
+
+- The input file is always present in the resources directory and is correctly formatted in case of input mode selection is file based.
+- The intergalactic units and their corresponding Roman numerals are defined in the input file in case of input mode selection is file based.
+- The arithmetic operations are always valid and do not result in any undefined behavior like division by zero.
+- The user can give input both using input file and console.
+- The user can give output using console.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -109,9 +132,13 @@ git clone https://github.com/gnanee57/galaxy-merchant.git
 ```bash
 cd galaxy-merchant
 ```
+3. Compiling the Application
+```bash
+mvn clean install
+```
 4. Run the Application
 ```bash
-mvn clean install exec:java
+mvn exec:java
 ```
 ### Running the Tests
 To run the tests, run the following command
